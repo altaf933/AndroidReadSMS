@@ -43,3 +43,8 @@ captures/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
+.idea/vcs.xml
+app/libs/
+app/src/main/java/com/readsms/inboxmodule/mvp/
+app/src/main/java/com/readsms/utility/
+app/src/main/res/drawable/
