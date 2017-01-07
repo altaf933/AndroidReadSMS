@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.readsms.AppUtils;
 import com.readsms.CursorRecyclerViewAdapter;
 import com.readsms.inbox.R;
 
@@ -31,7 +32,16 @@ public class MsgCursorAdapter extends CursorRecyclerViewAdapter<MsgCursorAdapter
     public void onBindViewHolder(ViewHolder viewHolder, Cursor cursor) {
 
         viewHolder.snippetView.setText(cursor.getString(cursor.getColumnIndex("body")));
-        viewHolder.dateView.setText(cursor.getString(cursor.getColumnIndex("date")));
+        viewHolder.dateView.setText(AppUtils.millisecToString(cursor.getLong(cursor.getColumnIndex("date"))));
+        viewHolder.unreadView.setImageResource(R.drawable.ic_unread_indicator);
+        final boolean hasUnread = cursor.getInt(cursor.getColumnIndexOrThrow("read")) == 0;
+        if (hasUnread) {
+            viewHolder.unreadView.setVisibility(View.VISIBLE);
+            viewHolder.snippetView.setMaxLines(5);
+        } else {
+            viewHolder.unreadView.setVisibility(View.GONE);
+            viewHolder.snippetView.setMaxLines(1);
+        }
     }
 
     @Override
