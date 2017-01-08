@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
 
-        displaySmsLog();
+//        displaySmsLog();
 
     }
 

@@ -29,6 +29,8 @@ public abstract class BaseFragment<V, P extends BasePresenter<V>> extends Fragme
     @NonNull
     protected abstract P getPresenter();
 
+//    protected abstract void permissionGranted();
+
     protected abstract void onFragmentCreated(View view, @Nullable Bundle savedInstanceState);
 
     @Override
@@ -44,6 +46,7 @@ public abstract class BaseFragment<V, P extends BasePresenter<V>> extends Fragme
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Nullable
