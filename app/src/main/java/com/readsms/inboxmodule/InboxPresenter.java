@@ -30,7 +30,8 @@ public class InboxPresenter extends BasePresenter<Inboxmvp.View> implements Inbo
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         Uri uri = Uri.parse(URI_SMS);
 
-        return new CursorLoader(ReadSMSApp.getInstance().getApplicationContext(), uri, null, null, null, null);
+        return new CursorLoader(ReadSMSApp.getInstance().getApplicationContext(),
+                uri, null, null, null, null);
 
     }
 

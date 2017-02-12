@@ -35,7 +35,10 @@ public class InboxView extends BaseFragment<Inboxmvp.View, InboxPresenter> imple
 
     @Override
     public void cursorLoaded(Cursor cursor) {
-        MsgCursorAdapter adapter = new MsgCursorAdapter(ReadSMSApp.getInstance().getApplicationContext(), cursor);
+
+
+        MsgCursorAdapter adapter = new MsgCursorAdapter(ReadSMSApp.getInstance().
+                getApplicationContext(), cursor);
         recycleView.setAdapter(adapter);
         recycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }

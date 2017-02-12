@@ -30,10 +30,12 @@ public class MsgCursorAdapter extends CursorRecyclerViewAdapter<MsgCursorAdapter
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Cursor cursor) {
-
+        String person = cursor.getString(cursor.getColumnIndex("person"));
+        String address = cursor.getString(cursor.getColumnIndex("address"));
         viewHolder.snippetView.setText(cursor.getString(cursor.getColumnIndex("body")));
         viewHolder.dateView.setText(AppUtils.millisecToString(cursor.getLong(cursor.getColumnIndex("date"))));
         viewHolder.unreadView.setImageResource(R.drawable.ic_unread_indicator);
+        viewHolder.fromView.setText(cursor.getString(cursor.getColumnIndex("address")));
         final boolean hasUnread = cursor.getInt(cursor.getColumnIndexOrThrow("read")) == 0;
         if (hasUnread) {
             viewHolder.unreadView.setVisibility(View.VISIBLE);
